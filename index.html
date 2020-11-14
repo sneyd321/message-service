@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    
+    <button class="btn btn-primary" onclick="onSubmit()">Send</button>
+        
+    <script>
+        const socket = io("http://192.168.0.115:5001");
+
+        
+        function onSubmit() {
+            socket.emit("message.send", {
+                    message: "TEST",
+                    username: "YOOOOOO"
+                });
+        }
+
+    </script>
+        
+     
+    
+</body>
+</html>
