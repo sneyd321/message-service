@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: message-service
+spec:
+  selector:
+    matchLabels:
+      run: message-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: message-service
+    spec:
+      containers:
+      - name: message-service
+        image: sneyd321/message-service
+        ports:
+        - containerPort: 8087
+        
+      imagePullSecrets:
+        - name: key

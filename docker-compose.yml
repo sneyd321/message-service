@@ -1,0 +1,31 @@
+version: '3.5'
+
+services: 
+    message-service:
+        image: sneyd321/message-service
+        depends_on: 
+            - mongo
+        ports: 
+            - 8087:8087
+        networks: 
+            - roomr-network
+        volumes:
+            - ./:/usr/src/app 
+
+        restart: on-failure
+   
+ 
+    mongo:
+        image: mongo
+
+        restart: always
+
+        volumes: 
+            - ./data:/data/db
+
+        networks: 
+            - roomr-network
+            
+
+networks: 
+    roomr-network:
